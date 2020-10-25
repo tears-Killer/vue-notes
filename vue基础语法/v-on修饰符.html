@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div @click="divClick">
+            <!-- 阻止冒泡 -->
+            <button @click.stop="btnClick">按钮</button>
+        </div>
+        <!-- 阻止默认事件 -->
+        <a href="" @click.prevent>点击</a>
+        <!-- 按键弹起触发事件 -->
+        <input type="text" @keyup.enter="keyup">
+        <!-- 触发一次 -->
+        <button @click.once>按钮</button>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            methods: {
+                divClick() {
+                    console.log('div');
+                },
+                btnClick() {
+                    console.log('btn');
+                },
+                keyup() {
+                    console.log('enter');
+
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
